@@ -61,10 +61,15 @@ return packer.startup(function(use)
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  use "lunarvim/darkplus.nvim"
+  -- use "lunarvim/darkplus.nvim"
+  -- use "altercation/vim-colors-solarized"
+  -- use "shaunsingh/solarized.nvim"
+  -- use "joshdick/onedark.vim"
+  use "olimorris/onedarkpro.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
+  use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
@@ -81,6 +86,9 @@ return packer.startup(function(use)
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
+  -- Ruby auto add end
+  use "tpope/vim-endwise"
+  
   -- Telescope
   use "nvim-telescope/telescope.nvim"
 
@@ -93,6 +101,16 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+
+  -- Markdown preview
+  use {
+    'iamcco/markdown-preview.nvim',
+    run = function() vim.fn['mkdp#util#install']() end,
+    ft = {'markdown'}
+  }
+
+  -- Markdown table mode
+  use "dhruvasagar/vim-table-mode"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
